@@ -1,6 +1,9 @@
 # My comment
 # My comment
 name: my-github-actions-workflow
+env:
+  APPLICATION_NAME    : "My-Flask"
+  DEPLOY_PACKAGE_NAME : "My-deploy-vers-${{ githab.sha}}"
 
 # Controls when the workflow will run 
 on:  
@@ -19,7 +22,12 @@ jobs:
     steps:
       - name: Print Hello (test)
         run: echo "Hello world Test"
-     
+      - name: Execute few commands
+        run: |
+          echo "Hello message 1"
+          echo "Hello message 2"
+          echo "Application name: ${{ env.APPLICATION_NAME}}"
+          
   my-deploy-job:
   
     runs-on: ubuntu-latest 
@@ -28,3 +36,5 @@ jobs:
     steps:
       - name: Print Hello (deploy)
         run: echo Hello World Deploy
+      - name: Printing depl package
+        run: echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME}}"
