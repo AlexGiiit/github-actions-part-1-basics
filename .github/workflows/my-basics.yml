@@ -3,7 +3,7 @@
 name: my-github-actions-workflow
 env:
   APPLICATION_NAME    : "My-Flask"
-  DEPLOY_PACKAGE_NAME : "My-deploy-vers-${{ githab.sha}}"
+  DEPLOY_PACKAGE_NAME : "My-deploy-vers-${{ github.sha}}"
 
 # Controls when the workflow will run 
 on:  
