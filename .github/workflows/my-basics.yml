@@ -1,6 +1,6 @@
 # My comment
 # My comment
-name: my-github-actions-workflow
+name: My-github-actions-workflow
 env:
   APPLICATION_NAME    : "My-Flask-${{ github.workflow}}"
   DEPLOY_PACKAGE_NAME : "My-deploy-vers-${{ github.sha}}"
@@ -22,11 +22,15 @@ jobs:
     steps:
       - name: Step1_Print_Hello (My-testing-job)
         run: echo "Hello world Test"
-      - name: Step1_Execute few commands
+        
+      - name: Step2_Execute few commands
         run: |
           echo "Hello message 1"
           echo "Hello message 2"
           echo "Application name: ${{ env.APPLICATION_NAME}}"
+          
+      - name: Step3_list_folder
+        run: ls -la
           
   My-deploy-job:
   
@@ -36,5 +40,6 @@ jobs:
     steps:
       - name: Step2_Print Hello (My-deploy-job)
         run: echo Hello World Deploy
+        
       - name: Step2_Printing depl package
         run: echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME}}"
