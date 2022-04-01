@@ -2,8 +2,8 @@
 # My comment
 name: my-github-actions-workflow
 env:
-  APPLICATION_NAME    : "My-Flask-${{ github.}}"
-  DEPLOY_PACKAGE_NAME : "My-deploy-vers-${{ github.workflow}}"
+  APPLICATION_NAME    : "My-Flask-${{ github.workflow}}"
+  DEPLOY_PACKAGE_NAME : "My-deploy-vers-${{ github.sha}}"
   
 # Controls when the workflow will run 
 on:  
