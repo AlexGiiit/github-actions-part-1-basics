@@ -57,7 +57,7 @@ jobs:
         
       - name: Step5_print local variables
         run : |
-          echo "var1 = ${{ env.VAR1" }}"
+          echo "var1 = ${{ env.VAR1 }}"
           echo "var_step1 = $VAR_STEP1"
         env:
           VAR_STEP1 : "This is a step level var"
