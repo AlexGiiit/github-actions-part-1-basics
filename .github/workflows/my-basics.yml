@@ -39,8 +39,10 @@ jobs:
   
     runs-on: ubuntu-latest 
     needs: [My-testing-job] 
+    env:
+      VAR1 : "Ths is job level var1"
     
-    steps:
+    steps:    
       - name: Step1_Print Hello (My-deploy-job)
         run: echo Hello World Deploy
         
@@ -51,4 +53,12 @@ jobs:
         run: aws --version
 
       - name: Step4_Lets test some package if they are here 2
-        run: zip
+        run: zip --version
+        
+      - name: Step4_print local variables
+        run : |
+          echo "var1 = ${{ env.VAR1" }}"
+          echo "var_step1 = $VAR_STEP1
+        env:
+          VAR_STEP1 : "This is a step level var"
+          
