@@ -28,8 +28,11 @@ jobs:
           echo "Hello message 1"
           echo "Hello message 2"
           echo "Application name: ${{ env.APPLICATION_NAME}}"
-          
-      - name: Step3_list_folder
+      
+      - name: Step3_clone_my_repo
+        uses: actions/checkout@v1
+      
+      - name: Step4_list_folder
         run: ls -la
           
   My-deploy-job:
@@ -38,8 +41,14 @@ jobs:
     needs: [My-testing-job] 
     
     steps:
-      - name: Step2_Print Hello (My-deploy-job)
+      - name: Step1_Print Hello (My-deploy-job)
         run: echo Hello World Deploy
         
       - name: Step2_Printing depl package
         run: echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME}}"
+        
+      - name: Step3_Lets test some package if they are here 1
+        run: aws --version
+
+      - name: Step4_Lets test some package if they are here 2
+        run: zip
