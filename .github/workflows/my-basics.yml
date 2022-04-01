@@ -55,7 +55,7 @@ jobs:
       - name: Step4_Lets test some package if they are here 2
         run: zip --version
         
-      - name: Step4_print local variables
+      - name: Step5_print local variables
         run : |
           echo "var1 = ${{ env.VAR1" }}"
           echo "var_step1 = $VAR_STEP1
