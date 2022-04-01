@@ -4,7 +4,7 @@ name: my-github-actions-workflow
 env:
   APPLICATION_NAME    : "My-Flask"
   DEPLOY_PACKAGE_NAME : "My-deploy-vers-${{ github.sha}}"
-
+  
 # Controls when the workflow will run 
 on:  
   push:
@@ -20,9 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Print Hello (test)
+      - name: Step1_Print_Hello (my-testing-job)
         run: echo "Hello world Test"
-      - name: Execute few commands
+      - name: Step1_Execute few commands
         run: |
           echo "Hello message 1"
           echo "Hello message 2"
@@ -34,7 +34,7 @@ jobs:
     needs: [my-testing-job] 
     
     steps:
-      - name: Print Hello (deploy)
+      - name: Step2_Print Hello (my-deploy-job)
         run: echo Hello World Deploy
-      - name: Printing depl package
+      - name: Step2_Printing depl package
         run: echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME}}"
