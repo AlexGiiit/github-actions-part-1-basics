@@ -1,4 +1,30 @@
 name: My_CICD_Pipeline_to_AWS
 
+on:
+  push:
+    branches:
+      - master 
 env:
+  MY-VAR: "THIS IS MY VAR"
+
+jobs:
+
+  My-test-job:
+    runs-on: ubuntu-latest
+    env:
+      JOB-LEVEL-VAR: 123
+    steps:
+      - name: step1
+        run: |
+          echo "hello"
+          echo "${{MY-VAR}}"
+          ls -la
+          docker --version          
+     
+      - name: step2
+        run: echo "$JOB-LEVEL-VAR"
+     
+
+  
+
   
