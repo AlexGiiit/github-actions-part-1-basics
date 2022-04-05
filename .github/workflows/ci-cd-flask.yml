@@ -17,7 +17,7 @@ jobs:
       - name: step1
         run: |
           echo "hello"
-          echo "${{MY-VAR}}"
+          echo "${{env:MY-VAR}}"
           ls -la
           docker --version          
      
