@@ -22,7 +22,7 @@ jobs:
           docker --version          
      
       - name: step2
-        run: echo "$JOB-LEVEL-VAR"
+        run: echo "${{env.JOB-LEVEL-VAR}}"
      
 
   
